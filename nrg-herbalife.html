@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NRG Tea – Herbalife | Energía Natural</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nunito:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --negro:#0a0a0a;
+  --verde1:#1b5e20;
+  --verde2:#2e7d32;
+  --verde3:#43a047;
+  --lima:#aeea00;
+  --naranja:#ff6d00;
+  --naranja2:#ff9100;
+  --crema:#fffde7;
+  --blanco:#ffffff;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--negro);color:var(--blanco);overflow-x:hidden;}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;
+  background: linear-gradient(160deg, #0a1a0b 0%, #1b3a1e 40%, #0d2610 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px 20px 60px;
+  position:relative;overflow:hidden;
+}
+.hero-circles{position:absolute;inset:0;pointer-events:none;}
+.hero-circles span{position:absolute;border-radius:50%;opacity:0.07;}
+.hero-circles span:nth-child(1){width:600px;height:600px;background:var(--lima);top:-200px;right:-150px;}
+.hero-circles span:nth-child(2){width:400px;height:400px;background:var(--naranja);bottom:-100px;left:-100px;}
+.hero-circles span:nth-child(3){width:200px;height:200px;background:var(--verde3);top:50%;left:10%;}
+
+.tag{
+  background:rgba(174,234,0,0.15);
+  border:1px solid rgba(174,234,0,0.4);
+  color:var(--lima);
+  font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+  padding:6px 20px;border-radius:100px;margin-bottom:20px;
+  animation:pop .6s ease both;
+}
+.hero-title{
+  font-family:'Black Han Sans',sans-serif;
+  font-size:clamp(3.5rem,12vw,7rem);
+  line-height:0.95;text-align:center;
+  color:var(--blanco);
+  animation:pop .6s .1s ease both;
+  text-shadow:0 0 80px rgba(174,234,0,0.3);
+}
+.hero-title em{
+  font-style:normal;
+  color:var(--lima);
+  display:block;
+  -webkit-text-stroke:2px var(--lima);
+  color:transparent;
+}
+.hero-sub{
+  color:rgba(255,255,255,0.6);
+  font-size:clamp(0.95rem,2.5vw,1.15rem);
+  font-weight:300;text-align:center;
+  max-width:440px;line-height:1.7;margin-top:16px;
+  animation:pop .6s .2s ease both;
+}
+.hero-img-area{
+  position:relative;margin:30px 0 20px;
+  animation:floatUp .8s .3s ease both;
+}
+.hero-img-glow{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle, rgba(174,234,0,0.2) 0%, transparent 70%);
+  animation:pulse 3s ease-in-out infinite;
+}
+.hero-img{
+  width:260px;height:260px;object-fit:contain;
+  position:relative;z-index:1;
+  animation:float 4s ease-in-out infinite;
+  filter:drop-shadow(0 30px 50px rgba(0,0,0,0.6));
+}
+.price-pill{
+  background:linear-gradient(135deg,var(--naranja),var(--naranja2));
+  color:var(--blanco);font-weight:900;
+  font-size:1rem;padding:10px 28px;
+  border-radius:100px;
+  box-shadow:0 4px 24px rgba(255,109,0,0.5);
+  animation:pop .6s .5s ease both;
+  letter-spacing:1px;
+}
+.hero-cta{
+  display:flex;align-items:center;gap:12px;
+  background:#25D366;color:white;
+  font-family:'Nunito',sans-serif;
+  font-size:1.1rem;font-weight:700;
+  padding:16px 36px;border-radius:100px;
+  text-decoration:none;margin-top:24px;
+  box-shadow:0 8px 32px rgba(37,211,102,0.45);
+  transition:transform .2s,box-shadow .2s;
+  animation:pop .6s .6s ease both;
+}
+.hero-cta:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 40px rgba(37,211,102,0.55);}
+.hero-cta svg{flex-shrink:0;}
+.delivery-tag{
+  margin-top:14px;
+  color:rgba(255,255,255,0.5);
+  font-size:0.82rem;
+  animation:pop .6s .7s ease both;
+}
+
+/* ─── STATS BAR ─── */
+.stats{
+  background:var(--lima);
+  padding:20px 24px;
+  display:flex;align-items:center;justify-content:center;
+  gap:0;flex-wrap:wrap;
+}
+.stat{
+  text-align:center;padding:8px 28px;
+  border-right:2px solid rgba(0,0,0,0.15);
+}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Black Han Sans',sans-serif;font-size:1.8rem;color:var(--negro);}
+.stat-label{font-size:0.75rem;font-weight:700;color:rgba(0,0,0,0.6);text-transform:uppercase;letter-spacing:1px;}
+
+/* ─── BENEFITS ─── */
+.benefits{
+  padding:80px 24px;
+  background:linear-gradient(180deg,#0d1a0e 0%,#0a0a0a 100%);
+}
+.section-head{text-align:center;margin-bottom:50px;}
+.section-eye{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--lima);margin-bottom:10px;}
+.section-title{font-family:'Black Han Sans',sans-serif;font-size:clamp(2rem,6vw,3.2rem);color:var(--blanco);line-height:1.1;}
+.section-title span{color:var(--naranja);}
+
+.benefit-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;max-width:900px;margin:0 auto;
+}
+.benefit-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(174,234,0,0.12);
+  border-radius:24px;padding:28px 24px;
+  transition:transform .25s,border-color .25s,background .25s;
+  opacity:0;transform:translateY(20px);
+}
+.benefit-card.visible{animation:slideUp .5s ease forwards;}
+.benefit-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(174,234,0,0.4);
+  background:rgba(174,234,0,0.06);
+}
+.benefit-icon{
+  width:56px;height:56px;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;margin-bottom:16px;
+  background:linear-gradient(135deg,rgba(174,234,0,0.2),rgba(174,234,0,0.05));
+  border:1px solid rgba(174,234,0,0.2);
+}
+.benefit-name{font-weight:800;font-size:1rem;color:var(--blanco);margin-bottom:6px;}
+.benefit-desc{font-size:0.88rem;color:rgba(255,255,255,0.5);line-height:1.6;font-weight:300;}
+
+/* ─── PRODUCT STRIP ─── */
+.product-strip{
+  background:linear-gradient(135deg,var(--verde1),var(--verde2));
+  padding:60px 24px;
+  position:relative;overflow:hidden;
+}
+.product-strip::before{
+  content:'NRG';
+  position:absolute;right:-40px;top:50%;transform:translateY(-50%);
+  font-family:'Black Han Sans',sans-serif;
+  font-size:clamp(8rem,20vw,16rem);
+  color:rgba(255,255,255,0.04);
+  line-height:1;pointer-events:none;
+  white-space:nowrap;
+}
+.strip-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:center;}
+.strip-img{width:180px;height:180px;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.5));}
+.strip-info{flex:1;min-width:240px;}
+.strip-info h3{font-family:'Black Han Sans',sans-serif;font-size:2rem;color:var(--lima);margin-bottom:16px;}
+.spec-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.1);}
+.spec-row:last-child{border-bottom:none;}
+.spec-label{font-size:0.82rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;font-weight:600;}
+.spec-val{font-weight:700;color:var(--blanco);font-size:0.95rem;}
+.spec-val.green{color:var(--lima);}
+
+/* ─── HOW TO ─── */
+.how-to{
+  padding:80px 24px;
+  background:#0a0a0a;
+}
+.steps-wrap{max-width:600px;margin:40px auto 0;}
+.step{
+  display:flex;gap:20px;padding:20px 0;position:relative;
+  opacity:0;transform:translateX(-20px);
+}
+.step.visible{animation:slideRight .5s ease forwards;}
+.step:not(:last-child)::after{
+  content:'';position:absolute;left:21px;top:64px;bottom:0;
+  width:2px;background:linear-gradient(to bottom,var(--verde3),transparent);
+}
+.step-num{
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--verde3),var(--lima));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Black Han Sans',sans-serif;font-size:1.1rem;color:var(--negro);
+  box-shadow:0 4px 16px rgba(174,234,0,0.3);
+}
+.step-body strong{display:block;font-weight:800;color:var(--blanco);margin-bottom:4px;}
+.step-body p{font-size:0.88rem;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.5;}
+
+/* ─── FINAL CTA ─── */
+.final{
+  padding:80px 24px;
+  background:linear-gradient(160deg,#0d1f0e,#0a0a0a);
+  text-align:center;
+}
+.final-title{font-family:'Black Han Sans',sans-serif;font-size:clamp(2.2rem,7vw,4rem);color:var(--blanco);line-height:1.05;margin-bottom:12px;}
+.final-title span{color:var(--lima);}
+.final-sub{color:rgba(255,255,255,0.45);font-size:1rem;font-weight:300;margin-bottom:36px;line-height:1.6;}
+.final-cta{
+  display:inline-flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,var(--naranja),var(--naranja2));
+  color:white;font-family:'Nunito',sans-serif;
+  font-size:1.1rem;font-weight:800;
+  padding:18px 40px;border-radius:100px;
+  text-decoration:none;
+  box-shadow:0 10px 36px rgba(255,109,0,0.45);
+  transition:transform .2s,box-shadow .2s;
+}
+.final-cta:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 48px rgba(255,109,0,0.55);}
+.num-badge{
+  margin-top:20px;color:rgba(255,255,255,0.35);font-size:0.85rem;
+}
+.num-badge strong{color:var(--lima);}
+
+/* ─── FOOTER ─── */
+footer{
+  background:#050805;
+  color:rgba(255,255,255,0.2);
+  text-align:center;padding:20px;font-size:0.78rem;
+}
+
+/* ─── KEYFRAMES ─── */
+@keyframes pop{from{opacity:0;transform:scale(.9) translateY(-10px);}to{opacity:1;transform:scale(1) translateY(0);}}
+@keyframes floatUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+@keyframes pulse{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1);}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15);}}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-20px);}to{opacity:1;transform:translateX(0);}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-circles"><span></span><span></span><span></span></div>
+  <div class="tag">🌿 Herbalife Nutrition</div>
+  <h1 class="hero-title">N-R-G<em>Tea</em></h1>
+  <p class="hero-sub">Energía natural con guaraná y té orange pekoe. Sin efectos secundarios, sin crash. Solo enfoque y vitalidad.</p>
+  <div class="hero-img-area">
+    <div class="hero-img-glow"></div>
+    <img class="hero-img" src="nrg-producto.png" alt="Herbalife NRG Tea">
+  </div>
+  <div class="price-pill">💰 Precio: Consultar por WhatsApp</div>
+  <a class="hero-cta" href="https://wa.me/51936562909?text=Hola!%20Vi%20el%20NRG%20Tea%20y%20quiero%20informaci%C3%B3n%20%F0%9F%8C%BF">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.849L0 24l6.335-1.509A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.889.924-3.638-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+    Pedir ahora
+  </a>
+  <p class="delivery-tag">🛵 Delivery a domicilio &nbsp;·&nbsp; Pago al recibir</p>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">5</div><div class="stat-label">Beneficios clave</div></div>
+  <div class="stat"><div class="stat-num">60g</div><div class="stat-label">Contenido neto</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Efectos secundarios</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Natural</div></div>
+</div>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="section-head">
+    <p class="section-eye">Por qué elegirlo</p>
+    <h2 class="section-title">Lo que el NRG<br><span>hace por ti</span></h2>
+  </div>
+  <div class="benefit-grid">
+    <div class="benefit-card"><div class="benefit-icon">⚡</div><div class="benefit-name">Energía natural</div><div class="benefit-desc">Eleva tus niveles de energía sin efectos colaterales gracias al extracto de guaraná.</div></div>
+    <div class="benefit-card"><div class="benefit-icon">🎯</div><div class="benefit-name">Concentración y alerta</div><div class="benefit-desc">Agudiza tu mente y reduce la sensación de fatiga mental durante el día.</div></div>
+    <div class="benefit-card"><div class="benefit-icon">🧠</div><div class="benefit-name">Elimina migrañas</div><div class="benefit-desc">Oxigena el cerebro eliminando migrañas y dolores de cabeza frecuentes.</div></div>
+    <div class="benefit-card"><div class="benefit-icon">🛡️</div><div class="benefit-name">Anti-envejecimiento</div><div class="benefit-desc">Combate el envejecimiento prematuro y ayuda a reducir tendencias depresivas.</div></div>
+    <div class="benefit-card"><div class="benefit-icon">🧘</div><div class="benefit-name">Reduce el estrés</div><div class="benefit-desc">Ideal para desgaste intelectual, trabajo exigente o actividades deportivas intensas.</div></div>
+  </div>
+</section>
+
+<!-- PRODUCT STRIP -->
+<section class="product-strip">
+  <div class="strip-inner">
+    <img class="strip-img" src="nrg-producto.png" alt="NRG Tea frasco">
+    <div class="strip-info">
+      <h3>Ficha del producto</h3>
+      <div class="spec-row"><span class="spec-label">Nombre</span><span class="spec-val">Herbalife N-R-G Tea</span></div>
+      <div class="spec-row"><span class="spec-label">Peso neto</span><span class="spec-val green">60 g</span></div>
+      <div class="spec-row"><span class="spec-label">Sabor</span><span class="spec-val">Orange Pekoe & Guaraná</span></div>
+      <div class="spec-row"><span class="spec-label">Certificación</span><span class="spec-val green">✓ Gluten Free</span></div>
+      <div class="spec-row"><span class="spec-label">Formato</span><span class="spec-val">Polvo instantáneo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO -->
+<section class="how-to">
+  <div class="section-head">
+    <p class="section-eye">Modo de uso</p>
+    <h2 class="section-title">¿Cómo <span style="color:var(--naranja)">prepararlo?</span></h2>
+  </div>
+  <div class="steps-wrap">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Calienta el agua</strong><p>Prepara una taza con agua caliente (no hirviendo, aprox. 80°C).</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Agrega el NRG</strong><p>Disuelve ½ cucharadita del polvo en la taza.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Mezcla bien</strong><p>Revuelve hasta disolver completamente. También puedes tomarlo frío con hielo.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><strong>¡A disfrutar!</strong><p>Ideal por las mañanas o antes de actividad física o trabajo intenso.</p></div></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <h2 class="final-title">¿Listo para<br><span>activarte?</span></h2>
+  <p class="final-sub">Escríbenos, coordinamos la entrega y pagas al recibir.<br>¡Sin complicaciones!</p>
+  <a class="final-cta" href="https://wa.me/51936562909?text=Hola!%20Quiero%20pedir%20el%20NRG%20Tea%20de%20Herbalife%20%F0%9F%8C%BF">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.849L0 24l6.335-1.509A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.889.924-3.638-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+    Quiero mi NRG Tea →
+  </a>
+  <p class="num-badge">📱 <strong>936 562 909</strong> &nbsp;·&nbsp; Respondemos rápido</p>
+</section>
+
+<footer>© 2026 · Distribuidor independiente Herbalife · El Porvenir, La Libertad, Perú</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if(e.isIntersecting){
+      setTimeout(() => e.target.classList.add('visible'), i * 100);
+      obs.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.1});
+document.querySelectorAll('.benefit-card, .step').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
