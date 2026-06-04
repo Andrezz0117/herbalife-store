@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herbalife NRG Tea – Energía Natural</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde-oscuro: #1a3d1f;
+    --verde-medio: #2d6a35;
+    --verde-claro: #4a9e55;
+    --verde-lima: #7dc44a;
+    --dorado: #c8a84b;
+    --crema: #f5f0e8;
+    --blanco: #ffffff;
+    --texto-oscuro: #1a2410;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--crema); color: var(--texto-oscuro); overflow-x: hidden; }
+
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde-medio) 50%, #1e5c28 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px 80px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(125,196,74,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(200,168,75,0.1) 0%, transparent 50%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0; right: 0;
+    height: 80px;
+    background: var(--crema);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .badge {
+    background: rgba(125,196,74,0.2);
+    border: 1px solid rgba(125,196,74,0.5);
+    color: var(--verde-lima);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    position: relative;
+    animation: fadeDown 0.8s ease both;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    font-weight: 900;
+    color: var(--blanco);
+    text-align: center;
+    line-height: 1.05;
+    position: relative;
+    animation: fadeDown 0.8s 0.15s ease both;
+  }
+  .hero-title span { color: var(--verde-lima); display: block; }
+  .hero-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: 300;
+    text-align: center;
+    max-width: 480px;
+    line-height: 1.6;
+    margin-top: 18px;
+    position: relative;
+    animation: fadeDown 0.8s 0.3s ease both;
+  }
+  .hero-img-wrap {
+    position: relative;
+    margin: 40px 0 30px;
+    animation: floatUp 0.9s 0.45s ease both;
+  }
+  .hero-img-wrap::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 30px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    filter: blur(12px);
+  }
+  .hero-img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  .price-tag {
+    background: linear-gradient(135deg, var(--dorado), #e8c96a);
+    color: var(--verde-oscuro);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 10px 28px;
+    border-radius: 100px;
+    position: relative;
+    animation: fadeDown 0.8s 0.6s ease both;
+    box-shadow: 0 4px 20px rgba(200,168,75,0.4);
+  }
+  .cta-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 18px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    margin-top: 28px;
+    position: relative;
+    animation: fadeDown 0.8s 0.75s ease both;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cta-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 40px rgba(37,211,102,0.5); }
+  .delivery-note { color: rgba(255,255,255,0.6); font-size: 0.82rem; margin-top: 12px; position: relative; animation: fadeDown 0.8s 0.9s ease both; }
+
+  .benefits { padding: 80px 24px; max-width: 700px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--verde-claro); text-align: center; margin-bottom: 12px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 700; text-align: center; color: var(--verde-oscuro); line-height: 1.2; margin-bottom: 48px; }
+  .benefit-list { display: flex; flex-direction: column; gap: 16px; }
+  .benefit-item {
+    background: white;
+    border-radius: 20px;
+    padding: 22px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    box-shadow: 0 2px 20px rgba(26,61,31,0.07);
+    border: 1px solid rgba(74,158,85,0.12);
+    transition: transform 0.2s, box-shadow 0.2s;
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  .benefit-item.visible { animation: slideIn 0.5s ease forwards; }
+  .benefit-item:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(26,61,31,0.12); }
+  .benefit-icon { width: 52px; height: 52px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; background: linear-gradient(135deg, var(--verde-claro), var(--verde-lima)); }
+  .benefit-title { font-weight: 600; font-size: 1rem; color: var(--verde-oscuro); margin-bottom: 4px; }
+  .benefit-desc { font-size: 0.88rem; color: #5a6b52; line-height: 1.5; font-weight: 300; }
+
+  .details { background: linear-gradient(135deg, var(--verde-oscuro), var(--verde-medio)); padding: 70px 24px; position: relative; overflow: hidden; }
+  .details::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 50%, rgba(125,196,74,0.1) 0%, transparent 60%); }
+  .details-inner { max-width: 600px; margin: 0 auto; position: relative; }
+  .details .section-label { color: var(--verde-lima); }
+  .details .section-title { color: white; }
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .detail-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 18px; text-align: center; backdrop-filter: blur(10px); }
+  .detail-card .label { font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .detail-card .value { font-weight: 600; color: white; font-size: 1rem; }
+  .detail-card .value.highlight { color: var(--verde-lima); font-family: 'Playfair Display', serif; font-size: 1.2rem; }
+
+  .how-to { padding: 80px 24px; max-width: 600px; margin: 0 auto; }
+  .steps { display: flex; flex-direction: column; gap: 0; margin-top: 10px; }
+  .step { display: flex; gap: 20px; align-items: flex-start; padding: 20px 0; position: relative; }
+  .step:not(:last-child)::after { content: ''; position: absolute; left: 20px; top: 56px; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--verde-claro), transparent); }
+  .step-num { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--verde-claro), var(--verde-lima)); color: white; font-weight: 700; font-size: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 15px rgba(74,158,85,0.35); }
+  .step-text strong { display: block; font-weight: 600; color: var(--verde-oscuro); margin-bottom: 3px; }
+  .step-text p { font-size: 0.88rem; color: #6a7d61; font-weight: 300; }
+
+  .final-cta { background: var(--crema); padding: 60px 24px 80px; text-align: center; }
+  .final-cta .section-title { margin-bottom: 10px; }
+  .final-cta p { color: #6a7d61; margin-bottom: 32px; font-size: 1rem; font-weight: 300; }
+  .cta-btn-dark { display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, var(--verde-medio), var(--verde-oscuro)); color: white; font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 600; padding: 18px 36px; border-radius: 100px; text-decoration: none; box-shadow: 0 8px 30px rgba(26,61,31,0.3); transition: transform 0.2s, box-shadow 0.2s; }
+  .cta-btn-dark:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(26,61,31,0.4); }
+  .whatsapp-note { margin-top: 14px; font-size: 0.82rem; color: #9aaa90; }
+
+  footer { background: var(--verde-oscuro); color: rgba(255,255,255,0.4); text-align: center; padding: 24px; font-size: 0.8rem; }
+
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes floatUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="badge">🌿 Herbalife Nutrition</div>
+  <h1 class="hero-title">NRG Tea<span>Energía Natural</span></h1>
+  <p class="hero-sub">Mezcla de té instantáneo con guaraná. Actívate sin efectos secundarios, enfócate y rinde más todo el día.</p>
+  <div class="hero-img-wrap">
+    <img class="hero-img" src="nrg-producto.jpg" alt="Herbalife NRG Tea">
+  </div>
+  <div class="price-tag">💰 Precio: Consultar por WhatsApp</div>
+  <a class="cta-btn" href="https://wa.me/51936562909?text=Hola!%20Vi%20el%20NRG%20Tea%20de%20Herbalife%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20%F0%9F%8C%BF">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.849L0 24l6.335-1.509A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.889.924-3.638-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+    Pedir por WhatsApp
+  </a>
+  <p class="delivery-note">🛵 Delivery a domicilio · Pago al recibir</p>
+</section>
+
+<section class="benefits">
+  <p class="section-label">Por qué elegirlo</p>
+  <h2 class="section-title">5 Beneficios Clave del NRG</h2>
+  <div class="benefit-list">
+    <div class="benefit-item"><div class="benefit-icon">⚡</div><div><div class="benefit-title">Aumenta la Energía Naturalmente</div><div class="benefit-desc">Eleva tus niveles de energía sin efectos colaterales gracias al extracto de guaraná.</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon">🎯</div><div><div class="benefit-title">Mejora la Concentración y Alerta</div><div class="benefit-desc">Agudiza tu concentración y reduce la sensación de fatiga mental.</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon">🧠</div><div><div class="benefit-title">Elimina Migraña y Dolores de Cabeza</div><div class="benefit-desc">Oxigena el cerebro eliminando la migraña y otros dolores de cabeza frecuentes.</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon">🛡️</div><div><div class="benefit-title">Retrasa el Envejecimiento Prematuro</div><div class="benefit-desc">Combate el envejecimiento prematuro y las tendencias depresivas.</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon">🧘</div><div><div class="benefit-title">Reduce el Estrés y el Agotamiento</div><div class="benefit-desc">Ideal para desgaste intelectual, trabajo exigente o actividades deportivas intensas.</div></div></div>
+  </div>
+</section>
+
+<section class="details">
+  <div class="details-inner">
+    <p class="section-label">Ficha del producto</p>
+    <h2 class="section-title" style="margin-bottom:32px;">Lo que contiene</h2>
+    <div class="detail-grid">
+      <div class="detail-card"><div class="label">Nombre</div><div class="value">Herbalife NRG Tea</div></div>
+      <div class="detail-card"><div class="label">Peso neto</div><div class="value highlight">60 g</div></div>
+      <div class="detail-card"><div class="label">Sabor</div><div class="value">Guaraná Tropical</div></div>
+      <div class="detail-card"><div class="label">Certificación</div><div class="value highlight">Gluten Free ✓</div></div>
+      <div class="detail-card" style="grid-column:1/-1;"><div class="label">Ingredientes clave</div><div class="value" style="font-size:0.9rem;line-height:1.5;">Extracto de guaraná · Orange Pekoe · Limón · Ácido cítrico</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="how-to">
+  <p class="section-label">Modo de uso</p>
+  <h2 class="section-title">¿Cómo se prepara?</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Calienta el agua</strong><p>Prepara una taza con agua caliente (no hirviendo).</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Agrega el NRG</strong><p>Disuelve media cucharadita del polvo en la taza.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Mezcla bien</strong><p>Revuelve hasta disolver completamente. También se puede tomar frío.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text"><strong>¡Disfrútalo!</strong><p>Ideal por las mañanas o antes de actividad física o trabajo intenso.</p></div></div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <p class="section-label">¿Listo para pedirlo?</p>
+  <h2 class="section-title">Delivery a tu puerta</h2>
+  <p>Escríbenos por WhatsApp, coordinamos la entrega<br>y pagas al recibir tu producto. ¡Así de fácil!</p>
+  <a class="cta-btn-dark" href="https://wa.me/51936562909?text=Hola!%20Vi%20el%20NRG%20Tea%20de%20Herbalife%20y%20quiero%20pedirlo%20%F0%9F%8C%BF">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.849L0 24l6.335-1.509A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.889.924-3.638-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+    Quiero mi NRG Tea →
+  </a>
+  <p class="whatsapp-note">📱 936 562 909 · Respondemos rápido</p>
+</section>
+
+<footer>
+  <p>© 2026 · Distribuidor independiente Herbalife · El Porvenir, La Libertad</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.benefit-item').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
